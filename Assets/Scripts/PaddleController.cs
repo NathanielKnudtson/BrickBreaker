@@ -6,6 +6,7 @@ public class PaddleController : MonoBehaviour
 {
     public float playerInput;
     public float paddleSpeed;
+    public float xRange = 9.3f;
 
     // Start is called before the first frame update
     void Start()
@@ -18,5 +19,16 @@ public class PaddleController : MonoBehaviour
     {
         playerInput = Input.GetAxis("Horizontal");
         transform.Translate(Vector3.right * Time.deltaTime * paddleSpeed * playerInput);
+
+        // Keeps player in bounds
+        if (transform.position.x < -xRange)
+        {
+            transform.position = new Vector3(-xRange, transform.position.y, transform.position.z);
+        }
+        if (transform.position.x > xRange)
+        {
+            transform.position = new Vector3(xRange, transform.position.y, transform.position.z);
+        }
+
     }
 }
