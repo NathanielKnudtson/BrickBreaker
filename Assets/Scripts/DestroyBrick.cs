@@ -24,11 +24,12 @@ public class DestroyBrick : MonoBehaviour
     {
         
     }
+
     private void OnCollisionEnter2D(Collision2D other)
     {
         numberOfHits++;
-        brickSprite.color = Color.magenta;
-
+        brickSprite.color = Color.red;
+        
         if (numberOfHits >= maxHits)
         {
             gameMaster.playerPoints = gameMaster.playerPoints + brickValue;

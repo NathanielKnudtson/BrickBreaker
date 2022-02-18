@@ -19,4 +19,5 @@ public class StartScreenManager : MonoBehaviour
             SceneManager.LoadScene("GameScene");
         }
     }
+
 }
