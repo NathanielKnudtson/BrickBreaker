@@ -6,7 +6,7 @@ public class PaddleController : MonoBehaviour
 {
     public float playerInput;
     public float paddleSpeed;
-    public float xRange = 9.3f;
+    public float xRange = 20.0f;
 
     // Start is called before the first frame update
     void Start()
