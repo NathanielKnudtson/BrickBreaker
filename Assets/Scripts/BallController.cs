@@ -29,6 +29,14 @@ public class BallController : MonoBehaviour
             ballRigidbody.AddForce(startDirections[randomNum] * ballForce, ForceMode2D.Impulse);
             ballLaunched = true;
         } 
+
+        if (Input.GetKeyDown(KeyCode.R))
+        {
+            ballRigidbody.velocity = Vector3.zero;
+            transform.position = startPosition;
+            ballLaunched = false;
+        }
+
     }
 
     private void OnTriggerEnter2D(Collider2D other)

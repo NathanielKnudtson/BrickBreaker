@@ -29,5 +29,10 @@ public class GameMaster : MonoBehaviour
             SceneManager.LoadScene("WinScene");
         }
 
+
+        if (Input.GetKeyDown(KeyCode.H))
+        {
+            SceneManager.LoadScene("OpenScene");
+        }
     }
 }
