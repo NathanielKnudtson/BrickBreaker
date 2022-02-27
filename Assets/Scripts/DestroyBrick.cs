@@ -8,8 +8,6 @@ public class DestroyBrick : MonoBehaviour
     public int maxHits;
 
     public SpriteRenderer brickSprite;
-    public float brickValue;
-
     public GameMaster gameMaster;
 
     // Start is called before the first frame update
@@ -32,7 +30,7 @@ public class DestroyBrick : MonoBehaviour
         
         if (numberOfHits >= maxHits)
         {
-            gameMaster.playerPoints = gameMaster.playerPoints + brickValue;
+            gameMaster.playerPoints = gameMaster.playerPoints + 10;
             Destroy(this.gameObject);
         }
     }
