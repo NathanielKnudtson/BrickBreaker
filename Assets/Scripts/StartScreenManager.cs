@@ -18,6 +18,11 @@ public class StartScreenManager : MonoBehaviour
         {
             SceneManager.LoadScene("GameScene");
         }
+
+        if(Input.GetKeyDown(KeyCode.I))
+        {
+            SceneManager.LoadScene("Instructions");
+        }
     }
 
 }

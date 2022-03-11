@@ -8,7 +8,7 @@ public class GameMaster : MonoBehaviour
     public int currentLevel = 1;
 
     public float playerPoints = 0;
-    public float maxLevelPoints = 200;
+    public float maxLevelPoints;
     public float playerLives = 3;
 
     // Start is called before the first frame update
@@ -26,11 +26,29 @@ public class GameMaster : MonoBehaviour
             SceneManager.LoadScene("LoseScene");
         }
 
-        if(playerPoints >= maxLevelPoints)
+        if (playerPoints >= maxLevelPoints)
         {
-            SceneManager.LoadScene("WinScene");
+            if(currentLevel == 1)
+            {
+                SceneManager.LoadScene("Level2");
+            }
+            else if (currentLevel == 2)
+            {
+                SceneManager.LoadScene("Level3");
+            }
+            else if (currentLevel == 3)
+            {
+                SceneManager.LoadScene("Level4");
+            }
+            else if (currentLevel == 4)
+            {
+                SceneManager.LoadScene("Level5");
+            }
+            else if(currentLevel == 5)
+            {
+                SceneManager.LoadScene("WinScene");
+            }
         }
-
 
         if (Input.GetKeyDown(KeyCode.H))
         {
