@@ -10,6 +10,10 @@ public class DestroyBrick : MonoBehaviour
     public SpriteRenderer brickSprite;
     public GameMaster gameMaster;
 
+    public List<GameObject> bricks;
+
+    private Vector3 telePos;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -25,11 +29,32 @@ public class DestroyBrick : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other)
     {
+        float xPos = Random.Range(-16, 16);
+        float yPos = Random.Range(1, 7);
+        telePos = new Vector3(xPos, yPos, 0);
+
         numberOfHits++;
-        brickSprite.color = Color.red;
-        
+        if (this.gameObject.tag == "TeleBrick" && numberOfHits == 1)
+        {
+            brickSprite.color = Color.blue;
+            this.gameObject.transform.position = telePos;
+        }
+        else if(this.gameObject.tag == "TeleBrick" && numberOfHits == 2)
+        {
+            brickSprite.color = Color.red;
+            this.gameObject.transform.position = telePos;
+        }
+        else
+        {
+            brickSprite.color = Color.red;
+        }
+
         if (numberOfHits >= maxHits)
         {
+            if(this.gameObject.tag == "SplitBrick")
+            {
+                Instantiate(bricks[0], transform.position, bricks[0].transform.rotation);
+            }
             gameMaster.playerPoints = gameMaster.playerPoints + 10;
             Destroy(this.gameObject);
         }

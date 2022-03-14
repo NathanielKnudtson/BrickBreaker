@@ -48,6 +48,8 @@ public class GameMaster : MonoBehaviour
             {
                 SceneManager.LoadScene("WinScene");
             }
+            playerPoints = 0;
+            currentLevel = currentLevel + 1;
         }
 
         if (Input.GetKeyDown(KeyCode.H))
@@ -64,7 +66,7 @@ public class GameMaster : MonoBehaviour
         }
         else if (Input.GetKeyDown(KeyCode.N))
         {
-            currentLevel = currentLevel + 1;
+            playerPoints = maxLevelPoints;
         }
 
     }
